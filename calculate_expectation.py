@@ -59,35 +59,6 @@ def exp_dist(x,y,s,n):
     dist = np.sqrt((expectation[0] - x) * (expectation[0] - x) + (expectation[1] - y) * (expectation[1] - y))
     return dist
 
-#hexagonal lattice, basis: (2,0)^t, (1,2)^t
-
-def gaussian_sum_hex(m_x, m_y, s, n):
-    sum = 0
-    for b_1 in range(-n, n):
-        for b_2 in range(-n,n):
-            x = 2 * b_1 + b_2
-            y = 2 * b_2
-            sum = sum + gaussian_function_2_dim(x,y,m_x,m_y,s)
-    return sum
-
-def expectation_hex(m_x, m_y, s, n):
-    sum = gaussian_sum_hex(m_x,m_y,s,n)
-    expectation = [0,0]
-    for b_1 in range(-n, n):
-        for b_2 in range(-n,n):
-            x = 2 * b_1 + b_2
-            y = 2 * b_2
-            prob = gaussian_function_2_dim(x,y,m_x,m_y,s)/sum
-            expectation[0] = expectation[0] + x * prob
-            expectation[1] = expectation[1] + y * prob
-    return expectation
-
-def exp_dist_hex(x,y,s,n):
-    expectation = expectation_hex(x, y, 1, 100)
-    dist = np.sqrt((expectation[0] - x) * (expectation[0] - x) + (expectation[1] - y) * (expectation[1] - y))
-    return dist
-
-
 #arbitrary lattice
 
 def gaussian_sum_lattice(x_1, x_2, y_2, m_x, m_y, s, n):
