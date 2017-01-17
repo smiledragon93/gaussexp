@@ -22,6 +22,6 @@ def expectation_lattice(x_1, x_2, y_2, m_x, m_y, s, n):
     return expectation
 
 def exp_dist_lattice(x_1, x_2, y_2, x,y,s,n):
-    expectation = expectation_lattice(x_1, x_2, y_2, x, y, 1, 100)
+    expectation = expectation_lattice(x_1, x_2, y_2, x, y, s, n)
     dist = np.sqrt((expectation[0] - x) * (expectation[0] - x) + (expectation[1] - y) * (expectation[1] - y))
     return dist
