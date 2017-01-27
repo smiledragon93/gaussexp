@@ -24,6 +24,6 @@ def expectation_2_dim(m_x, m_y,s,n):
     return expectation
 
 def exp_dist(x,y,s,n):
-    expectation = expectation_2_dim(x, y, 1, 100)
+    expectation = expectation_2_dim(x, y, s, 100)
     dist = np.sqrt((expectation[0] - x) * (expectation[0] - x) + (expectation[1] - y) * (expectation[1] - y))
     return dist
